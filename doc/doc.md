@@ -70,7 +70,7 @@ airline-streaming-project/
 │   └─ airline_producer.py
 │
 ├─ streaming/
-│   └─ inventory_engine.py
+│   └─ consumer.py
 │
 ├─ lake/
 │   ├─ lake_writer.py
