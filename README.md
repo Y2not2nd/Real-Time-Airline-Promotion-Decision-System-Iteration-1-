@@ -1,6 +1,6 @@
 # Airline Streaming Analytics — Iteration 1
 
-![Architecture diagram](diagram/iteration-1.drawio.png.png)
+![Architecture diagram](diagram/iteration-1.drawio.png)
 
 ## Tech stack
 
@@ -190,6 +190,7 @@ If introduced, ML would sit on top of the existing pipeline and be evaluated alo
 Iteration 1 is already a complete end-to-end system that processes data as it arrives and makes its decisions observable.
 
 Each iteration builds on this foundation rather than rewriting it.
+
 
 
 
