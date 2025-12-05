@@ -8,9 +8,7 @@ GOLD.mkdir(parents=True, exist_ok=True)
 
 TS_FORMAT = "%Y-%m-%dT%H:%M:%S%.fZ"
 
-# -----------------------
-# Helpers
-# -----------------------
+
 
 def scan(topic: str):
     files = list((RAW / topic).glob("*.jsonl"))
@@ -25,9 +23,7 @@ def parse_utc(col: pl.Expr) -> pl.Expr:
     """
     return col.str.strptime(pl.Datetime, format=TS_FORMAT)
 
-# -----------------------
-# DIM FLIGHT
-# -----------------------
+
 
 def build_dim_flight():
     df = scan("flight_lifecycle")
@@ -52,9 +48,7 @@ def build_dim_flight():
     dim.collect().write_parquet(GOLD / "dim_flight.parquet")
     return dim
 
-# -----------------------
-# FACT BOOKINGS
-# -----------------------
+
 
 def build_fact_booking():
     df = scan("bookings")
@@ -83,9 +77,7 @@ def build_fact_booking():
     fact.collect().write_parquet(GOLD / "fact_booking.parquet")
     return fact
 
-# -----------------------
-# FACT INVENTORY METRICS
-# -----------------------
+
 
 def build_fact_inventory():
     df = scan("inventory_metrics")
@@ -109,9 +101,7 @@ def build_fact_inventory():
     fact.collect().write_parquet(GOLD / "fact_inventory_metrics.parquet")
     return fact
 
-# -----------------------
-# FACT PROMOTIONS
-# -----------------------
+
 
 def build_fact_promotions():
     df = scan("promo_decisions")
@@ -135,9 +125,7 @@ def build_fact_promotions():
     fact.collect().write_parquet(GOLD / "fact_promotions.parquet")
     return fact
 
-# -----------------------
-# LOAD TO POSTGRES
-# -----------------------
+
 
 def load_to_postgres(table_name: str, df: pl.LazyFrame):
     pdf = df.collect()
@@ -165,9 +153,7 @@ def load_to_postgres(table_name: str, df: pl.LazyFrame):
     conn.commit()
     conn.close()
 
-# -----------------------
-# MAIN
-# -----------------------
+
 
 def run():
     tables = {
@@ -179,7 +165,7 @@ def run():
 
     for name, df in tables.items():
         if df is not None:
-            print(f"📦 Writing {name}")
+            print(f" Writing {name}")
             load_to_postgres(name, df)
 
 if __name__ == "__main__":
