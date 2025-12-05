@@ -408,10 +408,3 @@ Dashboard exists to review decisions, not drive live actions.
 * Redis is unused
 * no prediction or ML
 * no `dim_flight` yet
-
-```
-
----
-
-
-
