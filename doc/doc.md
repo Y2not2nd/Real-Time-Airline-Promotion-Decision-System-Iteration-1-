@@ -303,9 +303,9 @@ python .\etl\build_warehouse.py
 Expected output:
 
 ```text
-📦 Writing fact_booking
-📦 Writing fact_inventory_metrics
-📦 Writing fact_promotions
+ Writing fact_booking
+ Writing fact_inventory_metrics
+ Writing fact_promotions
 ```
 
 Only fact tables are loaded in Iteration 1.
