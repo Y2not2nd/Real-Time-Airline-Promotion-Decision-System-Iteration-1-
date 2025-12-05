@@ -1,15 +1,3 @@
-Got it. I’ll do this in **two clean parts**:
-
-1. **Reformatted doc**, word for word, only Markdown and structure
-2. **Honest rating and critique**, calibrated to your experience level
-
-No content changes.
-
----
-
-## 1) Reformatted doc (no wording changes)
-
-````md
 # Project Setup & Execution Guide — Iteration 1
 
 This is the walkthrough for how I actually run the project end to end, from Docker all the way through to Tableau.
